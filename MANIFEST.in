@@ -1,0 +1,6 @@
+include LICENSE
+include requirements.txt dev-requirements.txt
+include *.rst *.md
+recursive-include tests *
+recursive-include docs *
+recursive-exclude docs/_build *
