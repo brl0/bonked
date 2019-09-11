@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Main module."""
+"""Main module for bonked."""
 
 import sys
 import typing
