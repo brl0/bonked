@@ -1,9 +1,6 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
 Console script for bonked.
-If the module has a command line interface then this
-file should be the entry point for that interface.
 """
 
 from pathlib import Path
@@ -17,7 +14,8 @@ except:
 #DBG("bonked.cli")
 
 
-def validate_path(ctx, param, value):
+def _validate_path(ctx, param, value):
+    """This function is used if a file is specified to validate the path."""
     if value is None:
         return
     DBG(str(value))
@@ -42,7 +40,7 @@ def validate_path(ctx, param, value):
                     resolve_path=True,
                     allow_dash=False),
     default=None,
-    callback=validate_path,
+    callback=_validate_path,
     #multiple=True,
     help='Config file to use.')
 @click.option('-d',
