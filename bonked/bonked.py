@@ -5,7 +5,7 @@ import sys
 import typing
 from pathlib import Path
 
-# import logging
+import konch
 from loguru import logger
 
 LOG_LEVEL = "DEBUG"
@@ -76,7 +76,6 @@ def start_konch(
 ) -> None:
     """Start konch, optionally specify rc file."""
     rc = find_rc_file(rc)
-    import konch
 
     konch.logger = logger
     if rc is None:

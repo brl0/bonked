@@ -93,3 +93,5 @@ ENV/
 
 .konchrc*
 .ignore/
+
+.mypy_cache/
