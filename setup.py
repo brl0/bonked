@@ -3,7 +3,7 @@ import re
 import shlex
 from setuptools import setup, find_packages, Command
 
-base_package = 'bonked'
+base_package = "bonked"
 
 EXTRAS_REQUIRE = {
     "tests": ["pytest", "mock", "scripttest==1.3", "ipython", "bpython"],
@@ -14,8 +14,9 @@ EXTRAS_REQUIRE = {
         "pre-commit==1.17.0",
     ],
 }
-EXTRAS_REQUIRE["dev"] = (EXTRAS_REQUIRE["tests"] + EXTRAS_REQUIRE["lint"] +
-                         ["ptpython", "tox"])
+EXTRAS_REQUIRE["dev"] = (
+    EXTRAS_REQUIRE["tests"] + EXTRAS_REQUIRE["lint"] + ["ptpython", "tox"]
+)
 PYTHON_REQUIRES = ">=3.6"
 
 
@@ -51,7 +52,7 @@ def read(fname):
             content = fp.read()
         return content
     except:
-        return ''
+        return ""
 
 
 def find_version(fname):
@@ -60,7 +61,7 @@ def find_version(fname):
     # Get the version (borrowed from SQLAlchemy)
     version = ""
     module_content = read(fname)
-    reg = re.compile(r'.*__version__ = \'(.*?)\'', re.S)
+    reg = re.compile(r".*__version__ = \'(.*?)\'", re.S)
     m = reg.match(module_content)
     if m:
         version = m.group(1)
@@ -72,7 +73,7 @@ def find_license(fname):
     """
     LICENSE = ""
     module_content = read(fname)
-    reg = re.compile(r'.*__license__ = \'(.*?)\'', re.S)
+    reg = re.compile(r".*__license__ = \'(.*?)\'", re.S)
     m = reg.match(module_content)
     if m:
         LICENSE = m.group(1)
@@ -80,57 +81,55 @@ def find_license(fname):
 
 
 base_path = os.path.dirname(__file__)
-fname = os.path.join(base_path, 'bonked', '__init__.py')
+fname = os.path.join(base_path, "bonked", "__init__.py")
 VERSION = find_version(fname)
 LICENSE = find_license(fname)
 
-readme = read('README.rst')
-changes = read('CHANGELOG.rst')
+readme = read("README.rst")
+changes = read("CHANGELOG.rst")
 requirements = [
-    line for line in read('requirements.txt').split('\n') if len(line.strip())
+    line for line in read("requirements.txt").split("\n") if len(line.strip())
 ]
 
 packages = [
-    base_package + '.' + x
-    for x in find_packages(os.path.join(base_path, base_package))
+    base_package + "." + x for x in find_packages(os.path.join(base_path, base_package))
 ]
 if base_package not in packages:
     packages.append(base_package)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     setup(
-        name='bonked',
-        description='Konch shell wrapper',
-        long_description='\n\n'.join([readme, changes]),
+        name="bonked",
+        description="Konch shell wrapper",
+        long_description="\n\n".join([readme, changes]),
         license=LICENSE,
-        url='https://github.com/brl0/bonked',
+        url="https://github.com/brl0/bonked",
         version=VERSION,
-        author='Brian Larsen',
-        author_email='bmelarsen+bonked@gmail.com',
-        maintainer='Brian Larsen',
-        maintainer_email='bmelarsen+bonked@gmail.com',
+        author="Brian Larsen",
+        author_email="bmelarsen+bonked@gmail.com",
+        maintainer="Brian Larsen",
+        maintainer_email="bmelarsen+bonked@gmail.com",
         py_modules=["bonked"],
-        entry_points={'console_scripts': ['bonked = bonked.cli:main']},
+        entry_points={"console_scripts": ["bonked = bonked.cli:main"]},
         install_requires=requirements,
         cmdclass={"shell": Shell},
         extras_require=EXTRAS_REQUIRE,
         python_requires=PYTHON_REQUIRES,
-        keywords=['bonked'],
+        keywords=["bonked"],
         packages=packages,
         zip_safe=False,
         classifiers=[
-            'Intended Audience :: Developers',
-            'License :: OSI Approved :: MIT License',
-            'Natural Language :: English',
-            'Operating System :: OS Independent',
-            'Programming Language :: Python :: 3',
-            'Programming Language :: Python :: 3.6',
-            'Programming Language :: Python :: 3.7',
+            "Intended Audience :: Developers",
+            "License :: OSI Approved :: MIT License",
+            "Natural Language :: English",
+            "Operating System :: OS Independent",
+            "Programming Language :: Python :: 3",
+            "Programming Language :: Python :: 3.6",
+            "Programming Language :: Python :: 3.7",
             "Topic :: System :: Shells",
         ],
         project_urls={
-            "Changelog":
-            "https://konch.readthedocs.io/en/latest/changelog.html",
+            "Changelog": "https://konch.readthedocs.io/en/latest/changelog.html",
             "Issues": "https://github.com/sloria/konch/issues",
             "Source": "https://github.com/sloria/konch/",
         },

@@ -16,7 +16,8 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../..'))
+
+sys.path.insert(0, os.path.abspath("../.."))
 
 import bonked
 
@@ -33,31 +34,33 @@ year = datetime.now().year
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['alabaster',
-              'sphinx.ext.todo',
-              'sphinx.ext.intersphinx',
-              'sphinx.ext.autodoc']
+extensions = [
+    "alabaster",
+    "sphinx.ext.todo",
+    "sphinx.ext.intersphinx",
+    "sphinx.ext.autodoc",
+]
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+templates_path = ["_templates"]
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
 #
 # source_suffix = ['.rst', '.md']
-source_suffix = '.rst'
+source_suffix = ".rst"
 
 # The master toctree document.
-master_doc = 'index'
+master_doc = "index"
 
 # Releases changelog extension
 releases_release_uri = "https://github.com/brl0/bonked/tree/%s"
 releases_issue_uri = "https://github.com/brl0/bonked/issues/%s"
 
 # General information about the project.
-project = 'bonked'
-copyright = '%d Brian Larsen' % year
-author = 'Brian Larsen'
+project = "bonked"
+copyright = "%d Brian Larsen" % year
+author = "Brian Larsen"
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -79,10 +82,10 @@ language = None
 # directories to ignore when looking for source files.
 # This patterns also effect to html_static_path and html_extra_path
 exclude_patterns = []
-exclude_trees = ['_build']
+exclude_trees = ["_build"]
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx'
+pygments_style = "sphinx"
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
@@ -93,43 +96,38 @@ todo_include_todos = True
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
+html_theme = "alabaster"
 html_theme_path = [alabaster.get_path()]
 html_theme_options = {
-    'description': 'Konch shell wrapper',
-    'github_user': 'brl0',
-    'github_repo': 'bonked',
-    'github_button': False,
-    'github_banner': True,
-    'font_family': "'Roboto', Georgia, sans",
-    'head_font_family': "'Roboto', Georgia, serif",
-    'code_font_family': "'Roboto Mono', 'Consolas', monospace"
+    "description": "Konch shell wrapper",
+    "github_user": "brl0",
+    "github_repo": "bonked",
+    "github_button": False,
+    "github_banner": True,
+    "font_family": "'Roboto', Georgia, sans",
+    "head_font_family": "'Roboto', Georgia, serif",
+    "code_font_family": "'Roboto Mono', 'Consolas', monospace",
 }
-html_sidebars = {
-    '**': [
-        'about.html',
-        'navigation.html',
-        'searchbox.html'
-    ]
-}
+html_sidebars = {"**": ["about.html", "navigation.html", "searchbox.html"]}
 
 # Everything intersphinx's to Python.
 intersphinx_mapping = {
-    'python': ('https://docs.python.org/3.6', None),
+    "python": ("https://docs.python.org/3.6", None),
 }
 
 # Autodoc settings
-autodoc_default_flags = ['members', 'special-members']
+autodoc_default_flags = ["members", "special-members"]
 
 
 def autodoc_skip_member(app, what, name, obj, skip, options):
-    exclusions = {'__weakref__', '__doc__', '__module__', '__dict__'}
+    exclusions = {"__weakref__", "__doc__", "__module__", "__dict__"}
     exclude = name in exclusions
     return skip or exclude
 
 
 def setup(app):
-    app.connect('autodoc-skip-member', autodoc_skip_member)
+    app.connect("autodoc-skip-member", autodoc_skip_member)
+
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -137,7 +135,7 @@ def setup(app):
 html_static_path = []
 
 # Suppress the warning about a non-local URI for status shields.
-suppress_warnings = ['image.nonlocal_uri']
+suppress_warnings = ["image.nonlocal_uri"]
 
 # Enable releases 'unstable prehistory' mode.
 releases_unstable_prehistory = True

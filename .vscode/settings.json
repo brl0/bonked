@@ -1,3 +1,4 @@
 {
-    "restructuredtext.confPath": "${workspaceFolder}\\docs\\source"
+    "restructuredtext.confPath": "${workspaceFolder}\\docs\\source",
+    "python.pythonPath": "/home/brl0/anaconda3/bin/python"
 }
