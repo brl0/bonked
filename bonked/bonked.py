@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """Main module for bonked."""
 
 import sys
@@ -96,5 +95,4 @@ if __name__ == '__main__':
 """
 # TODO:
     tmux integration?
-    conemu integration? (env)
 """
