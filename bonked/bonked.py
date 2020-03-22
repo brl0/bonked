@@ -8,7 +8,9 @@ from pathlib import Path
 import konch
 from loguru import logger
 
+
 LOG_LEVEL = "DEBUG"
+
 
 # Disable logging, may be changed by options
 r"""
@@ -76,6 +78,7 @@ def start_konch(
 ) -> None:
     """Start konch, optionally specify rc file."""
     rc = find_rc_file(rc)
+    touch_files()
 
     konch.logger = logger
     if rc is None:
@@ -89,6 +92,14 @@ def start_konch(
         konch.start(konch_args)
     return
 
+
+def touch_files():
+    files = [
+        Path.home() / '.ptpython' / 'history',
+        ]
+    for file in files:
+        Path(file).parent.mkdir(parents=True, exist_ok=True)
+        Path(file).touch()
 
 if __name__ == "__main__":
     from cli import main
