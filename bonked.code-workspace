@@ -4,5 +4,8 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"python.pythonPath": "E:\\ProgramData\\Anaconda3\\python.exe",
+		"python.venvPath": "/home/brl0/.msvscode.hdinsight/hdinsightJupyter/bin"
+	}
 }

@@ -9,7 +9,7 @@ import konch
 from loguru import logger
 
 
-LOG_LEVEL = "DEBUG"
+LOG_LEVEL = "WARNING"
 
 
 # Disable logging, may be changed by options
@@ -85,7 +85,7 @@ def start_konch(
         logger.info("Config file not found.")
         konch.main(konch_args)
     else:
-        konchrc = konch.use_file(rc)
+        konchrc = konch.use_file(rc, trust=True)
         DBG(dir(konchrc))
         DBG(f"{dir(konchrc.konch)}")
         DBG(f"konch_args: {konch_args}")
